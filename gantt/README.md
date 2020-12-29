@@ -1,9 +1,8 @@
 # Gantt generator
 
-## Requirements*
+## RequirementS
 
 * python3
-* python3-pip
 
 ```
 pip3 install plotly
