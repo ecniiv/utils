@@ -13,7 +13,9 @@ make
 cd ..
 mkdir /lib/modules/`uname -r`/misc
 cp vmmon.o /lib/modules/`uname -r`/misc/vmmon.ko
+cp vmmon.o /lib/modules/`uname -r`/kernel/drivers/misc/vmmon.ko
 cp vmnet.o /lib/modules/`uname -r`/misc/vmnet.ko
+cp vmnet.o /lib/modules/`uname -r`/kernel/drivers/misc/vmnet.ko
 
 depmod -a
 /etc/init.d/vmware restart
