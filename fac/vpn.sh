@@ -20,7 +20,6 @@ VPN_PASSWORD=""
 function up() {
 	nmcli connection delete $VPN_NAME
 	nmcli connection add connection.id $VPN_NAME con-name $VPN_NAME type VPN vpn-type l2tp ifname -- connection.autoconnect no ipv4.method auto vpn.data "gateway = $VPN_SERVER_IP, ipsec-enabled = yes, ipsec-esp = aes128-sha1, ipsec-ike = aes256-sha1-modp2048, ipsec-psk = $VPN_IPSEC_PSK, password-flags = $VPN_PASSWORD_FLAG, user = $VPN_USER" vpn.secrets password=$VPN_PASSWORD
-	
 	nmcli connection up $VPN_NAME
 }
 
@@ -38,7 +37,7 @@ while true ; do
   case "$1" in
   	--up)
 			up;
-  		shift;;
+  		exit 0;;
   	--down)
 			down;
   		exit 0;;
